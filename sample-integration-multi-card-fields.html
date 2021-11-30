@@ -56,6 +56,50 @@
         });
       },
     });
+
+    const customStyles = {
+      height: "60px",
+      padding: "10px",
+      fontSize: "18px",
+      fontFamily: '"Open Sans", sans-serif',
+      transition: "all 0.5s ease-out",
+      "input.invalid": {
+          color: "red",
+      },
+    };
+
+    cardFields.NumberField({
+      style: customStyles,
+      onChange: ({isValid, errors}) => {
+        console.log('onchange number: ', isValid, errors);
+      }
+    }).render(cardNumberContainer);
+
+    cardFields.CVVField({
+      style: customStyles,
+      onChange: ({isValid, errors}) => {
+        console.log('onchange cvv: ', isValid, errors);
+      }
+    }).render(cardCvvContainer);
+
+    cardFields.ExpiryField({
+      style: customStyles,
+      onChange: ({isValid, errors}) => {
+        console.log('onchange expiry: ', isValid, errors);
+      }
+    }).render(cardExpiryContainer);
+
+    button.addEventListener('click', () => {
+      cardFields.submit().then(() => {
+
+        // Success
+
+      }).catch((error) => {
+
+        // Handle error
+
+      });
+    });
   </script>
 </body>
 </html>
