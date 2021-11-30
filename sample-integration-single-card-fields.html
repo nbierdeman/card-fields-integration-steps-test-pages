@@ -65,6 +65,18 @@
         console.log('onchange: ', isValid, errors);
       },
     }).render(cardContainer);
+
+    button.addEventListener('click', () => {
+      cardField.submit().then(() => {
+
+        // Success
+
+      }).catch((error) => {
+
+        // Handle error
+
+      });
+    });
   </script>
 </body>
 </html>
