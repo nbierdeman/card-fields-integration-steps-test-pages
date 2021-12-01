@@ -13,8 +13,8 @@
   <button id="button" type="button">Pay now</button>
 
   <script>
-    const cardContainer = document.querySelector("#card-field-container");
-    const button = document.querySelector("#button");
+    const cardContainer = document.getElementById("card-field-container");
+    const button = document.getElementById("button");
 
     const customStyles = {
       height: "60px",
@@ -42,7 +42,6 @@
         });
       },
       onApprove: (data) => {
-        console.log("Payment Approved: ", data, actions);
         const { orderID } = data;
 
         // Capture the order on your server with `orderID`
@@ -52,6 +51,7 @@
         }).then((res) => {
           return res.json();
         }).then((orderData) => {
+          console.log("Payment approved and captured: ", orderData);
 
           // Handle Successful transaction
 
