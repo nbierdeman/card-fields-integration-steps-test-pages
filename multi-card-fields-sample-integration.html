@@ -16,10 +16,10 @@
   </div>
 
   <script>
-    const cardNumberContainer = document.querySelector('#card-number-field-container');
-    const cardExpiryContainer = document.querySelector('#card-expiry-field-container');
-    const cardCvvContainer = document.querySelector('#card-cvv-field-container');
-    const button = document.querySelector('#button');
+    const cardNumberContainer = document.getElementById('card-number-field-container');
+    const cardCvvContainer = document.getElementById('card-cvv-field-container');
+    const cardExpiryContainer = document.getElementById('card-expiry-field-container');
+    const button = document.getElementById('button');
 
     const cardFields = paypal.CardFields({
       createOrder: (data, actions) => {
@@ -36,7 +36,6 @@
 
       },
       onApprove: (data, actions) => {
-        console.log("Payment Approved: ", data, actions);
         const { orderID } = data;
 
         // Capture the order on your server with `orderID`
@@ -46,6 +45,8 @@
         }).then((res) => {
             return res.json();
         }).then((orderData) => {
+
+          console.log("Payment approved and captured: ", orderData);
 
           // Handle successful transaction
 
