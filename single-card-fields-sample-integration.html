@@ -9,7 +9,6 @@
 <body>
   <script src="https://www.paypal.com/sdk/js?client-id=test&components=card-fields&intent=capture"></script>
   <div id="card-field-container"></div>
-
   <button id="button" type="button">Pay now</button>
 
   <script>
@@ -65,7 +64,7 @@
         console.log('onchange: ', isValid, errors);
       },
     });
-    
+
     cardField.render(cardContainer);
 
     button.addEventListener('click', () => {
